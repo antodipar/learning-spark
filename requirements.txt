@@ -1,3 +1,5 @@
 ipython
 pyspark
+pyspark-stubs
 numpy
+jupyter
