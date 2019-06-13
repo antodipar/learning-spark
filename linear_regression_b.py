@@ -1,7 +1,6 @@
-from pyspark.sql import SparkSession
-from pyspark.ml.linalg import Vectors
 from pyspark.ml.feature import VectorAssembler
 from pyspark.ml.regression import LinearRegression
+from pyspark.sql import SparkSession
 from pyspark.sql.functions import col
 
 spark = SparkSession.builder.appName('lr_example').getOrCreate()

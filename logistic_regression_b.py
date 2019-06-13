@@ -1,13 +1,12 @@
-from pyspark.sql import SparkSession
-from pyspark.ml.feature import VectorAssembler, VectorIndexer, OneHotEncoder, StringIndexer
-from pyspark.ml.classification import LogisticRegression
 from pyspark.ml import Pipeline
+from pyspark.ml.classification import LogisticRegression
 from pyspark.ml.evaluation import BinaryClassificationEvaluator
-
+from pyspark.ml.feature import VectorAssembler, OneHotEncoder, StringIndexer
+from pyspark.sql import SparkSession
 
 spark = SparkSession.builder.appName('log_regression').getOrCreate()
 # Load data
-df = spark.read.format('csv').load('data/Logistic_Regression/titanic.csv', inferSchema=True, header=True)
+df = spark.read.csv('data/Logistic_Regression/titanic.csv', inferSchema=True, header=True)
 df.printSchema()
 my_cols = df.select(['Survived', 'Pclass', 'Sex', 'Age', 'SibSp', 'Parch', 'Fare', 'Embarked'])
 my_final_data = my_cols.na.drop()
