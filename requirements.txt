@@ -3,3 +3,7 @@ pyspark
 pyspark-stubs
 numpy
 jupyter
+tweepy
+matplotlib
+seaborn
+pandas
